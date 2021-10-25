@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test001.demo.mapper.GoodsMapper">
+<!--    //关联商家表-->
+    <resultMap id="goodsAndshangjia" type="com.test001.demo.entity.Goods">
+        <id property="sid" column="sid"></id>
+        <result property="sjid" column="sjid"></result>
+        <result property="describe" column="ms"></result>
+        <result property="price" column="jg"></result>
+        <result property="img" column="img"></result>
+        <result property="classify" column="fl"></result>
+
+        <association property="shangjia_user" javaType="com.test001.demo.entity.Shangjia_user">
+            <id property="sjid" column="sjidd"></id>
+            <result property="sj_user" column="sju"></result>
+            <result property="sj_password" column="sjp"></result>
+            <result property="sj_name" column="sjn"></result>
+        </association>
+    </resultMap>
+    <select id="getsidfindsj" resultMap="goodsAndshangjia">
+        SELECT goods.sid as sid,goods.sjid as sjid,goods.describe as ms,goods.price as jg,goods.img as img,goods.classify as fl,
+                shangjia_user.sjid as sjidd,shangjia_user.sj_user as sju,shangjia_user.sj_name as sjn
+                FROM `goods` inner join `shangjia_user` on goods.sjid=shangjia_user.sjid AND goods.sid=#{sid}
+    </select>
+    <select id="findGoodsAll" resultType="com.test001.demo.entity.Goods" >
+        SELECT * FROM goods
+    </select>
+
+<!--    搜索查询-->
+    <select id="getSearch" resultType="com.test001.demo.entity.Goods">
+        SELECT * FROM `goods` WHERE `describe` LIKE #{search}
+    </select>
+
+    <insert id="insertGoods" parameterType="com.test001.demo.entity.Goods">
+        insert into goods (sjid,`describe`,price,img) VALUES (#{sjid},#{spms},#{price},#{imgurl})
+    </insert>
+</mapper>
