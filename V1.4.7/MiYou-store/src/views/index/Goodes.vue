@@ -3,8 +3,12 @@
     <strong>商品详情</strong>
     <div class="g-content">
       <div class="img">
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/Goodes.vue
         <img :src="'http://localhost:8082/'+goods.img"
              alt />
+=======
+        <img :src="'http://localhost:8082/'+goods.img" alt />
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/Goodes.vue
       </div>
       <div class="title">
         <div>
@@ -15,6 +19,7 @@
             {{goods.shangjia_user[0].sj_name}}
           </p>
           <p>
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/Goodes.vue
             <span class="span-g">商品名称：</span>
             {{goods.describe}}
           </p>
@@ -25,6 +30,10 @@
           <p>
             <span class="span-g">商品描述：</span>
             {{goods.miaoshu}}
+=======
+            <span class="span-g">商品描述：</span>
+            {{goods.describe}}
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/Goodes.vue
           </p>
           <p>
             <span class="span-g">价格</span>：￥
@@ -33,6 +42,7 @@
           <div class="num">
             <span class="span-g">数量：</span>
             <div class="numBtn">
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/Goodes.vue
               <input type="button"
                      @click="num==1? '1': num--"
                      value="-" />
@@ -41,11 +51,15 @@
               <input type="button"
                      @click="num==99? '99': num++"
                      value="+" />
+=======
+              <input type="button" @click="num==1? '1': num--" value="-" />
+              <input type="text" v-model="num" />
+              <input type="button" @click="num==99? '99': num++" value="+" />
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/Goodes.vue
             </div>
           </div>
           <p class="gwcBtn">
-            <el-button type="danger"
-                       @click="putShopping">加入购物车</el-button>
+            <el-button type="danger" @click="putShopping">加入购物车</el-button>
           </p>
         </div>
       </div>

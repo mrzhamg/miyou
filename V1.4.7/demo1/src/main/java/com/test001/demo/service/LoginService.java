@@ -85,7 +85,10 @@ public class LoginService {
             }else{
                 Token token1 = new Token();
                 String sjtoken = token1.sjsign(sjUser);//调用生成token方法
+<<<<<<< HEAD:V1.4.7/demo1/src/main/java/com/test001/demo/service/LoginService.java
                 sjUser.setSj_password(null);
+=======
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/demo1/src/main/java/com/test001/demo/service/LoginService.java
                 Map<String,Object> sjData = new HashMap<>();
                 sjData.put("sjUser",sjUser);
                 sjData.put("sjToken",sjtoken);

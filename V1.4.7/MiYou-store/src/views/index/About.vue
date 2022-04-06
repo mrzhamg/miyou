@@ -3,12 +3,17 @@
     <!-- 基本信息开始 -->
     <div class="about-jbxx">
       <strong>基本信息</strong>
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
       <el-descriptions title
                        :column="2">
+=======
+      <el-descriptions title :column="2">
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
         <strong>基本信息</strong>
         <el-descriptions-item label="用户头像">
           <div class="img-box">
             <div class="userImg">
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
               <img :src="`http://localhost:8082`+user.imgurl"
                    alt />
             </div>
@@ -19,6 +24,18 @@
                        :on-success="upSuccess">
               <el-button size="mini"
                          type="primary">更换头像</el-button>
+=======
+              <img :src="`http://localhost:8082`+user.imgurl" alt />
+            </div>
+            <el-upload
+              class="upload-demo"
+              :with-credentials="true"
+              action="http://localhost:8082/postpicpath"
+              :headers="myHeader"
+              :on-success="upSuccess"
+            >
+              <el-button size="mini" type="primary">更换头像</el-button>
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
             </el-upload>
           </div>
         </el-descriptions-item>
@@ -46,6 +63,7 @@
 
       <strong>我的地址</strong>
       <template>
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
         <el-table :data="user.address"
                   style="width: 100%">
           <el-table-column prop="aid"
@@ -61,17 +79,26 @@
           <el-table-column fixed="right"
                            label="操作"
                            width="100">
+=======
+        <el-table :data="user.address" style="width: 100%">
+          <el-table-column prop="aid" label="地址ID" width="180"></el-table-column>
+          <el-table-column prop="shoujianName" label="收件人" width="180"></el-table-column>
+          <el-table-column prop="sjrPhone" label="收件人电话"></el-table-column>
+          <el-table-column prop="addres" label="地址"></el-table-column>
+          <el-table-column fixed="right" label="操作" width="100">
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
             <template slot-scope="scope">
-              <el-button @click="handleClick(scope.row)"
-                         type="text"
-                         size="small">编辑</el-button>
-              <el-button @click="deleteClick(scope.row.aid)"
-                         type="text"
-                         style="color:red"
-                         size="small">删除</el-button>
+              <el-button @click="handleClick(scope.row)" type="text" size="small">编辑</el-button>
+              <el-button
+                @click="deleteClick(scope.row.aid)"
+                type="text"
+                style="color:red"
+                size="small"
+              >删除</el-button>
             </template>
           </el-table-column>
         </el-table>
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
       </template>
 
       <p class="aboutBtn">
@@ -83,6 +110,16 @@
         <el-button type="danger"
                    @click="logout"
                    plain>退出登录</el-button>
+=======
+        <p class="addBtn" v-show="!user.address">
+          <el-button @click="handleClick(address)" type="primary" size="small">添加地址</el-button>
+        </p>
+      </template>
+
+      <p class="aboutBtn">
+        <el-button type="primary" @click="edit">编辑</el-button>
+        <el-button type="danger" @click="logout" plain>退出登录</el-button>
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
       </p>
     </div>
     <!-- 基本信息结束 -->
@@ -93,6 +130,7 @@
     <!-- 添加地址窗口开始 -->
     <!-- <div class="address"> -->
       <!-- 添加地址表单开始 -->
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
       <el-dialog
   title="收货地址"
   :visible.sync="dialogVisible1">
@@ -148,6 +186,42 @@
                      type="primary"
                      :disabled="btnTJ"
                      @click="addressFormBtn('addressForm')">添加</el-button>
+=======
+      <h3>添加地址</h3>
+      <el-form
+        :model="addressForm"
+        :rules="addressrules"
+        ref="addressForm"
+        label-width="100px"
+        class="demo-ruleForm"
+      >
+        <el-form-item label="用户ID" prop="uid">
+          <el-input
+            type="name"
+            class
+            prefix-icon="el-icon-user"
+            disabled
+            v-model="addressForm.uid"
+          />
+        </el-form-item>
+        <el-form-item label="地址ID" prop="aid">
+          <el-input type="name" class disabled v-model="addressForm.aid" />
+        </el-form-item>
+
+        <el-form-item label="收件人" prop="shoujianren">
+          <el-input type="text" class placeholder="最多6个字符" v-model="addressForm.shoujianren" />
+        </el-form-item>
+        <el-form-item label="收件人电话" prop="sjrPhone">
+          <el-input type="name" class placeholder="最多11个字符" v-model="addressForm.sjrPhone" />
+        </el-form-item>
+
+        <el-form-item label="收货地址" prop="address">
+          <el-input type="textarea" class placeholder="请输入地址" v-model="addressForm.address" />
+        </el-form-item>
+        <el-form-item class="form-btn">
+          <el-button type="primary" @click="editFormBtn('addressForm')">保存修改</el-button>
+          <el-button type="primary" @click="addressFormBtn('addressForm')">添加</el-button>
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
           <el-button @click="resetAddForm()">取消</el-button>
         </el-form-item>
       </el-form>
@@ -155,6 +229,7 @@
       <!-- 添加地址表单结束 -->
     <!-- </div> -->
     <!-- 添加窗口地址结束 -->
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
     <el-dialog title="修改个人信息" :visible.sync="dialogVisible2">
       <el-form :model="ruleForm"
                :rules="rules"
@@ -169,47 +244,59 @@
                     placeholder="邮箱/手机号"
                     disabled
                     v-model="ruleForm.username" />
+=======
+    <div class="edit-page">
+      <h3>修改个人信息</h3>
+      <el-form
+        :model="ruleForm"
+        :rules="rules"
+        ref="ruleForm"
+        label-width="100px"
+        class="demo-ruleForm"
+      >
+        <el-form-item label="账号" prop="username">
+          <el-input
+            type="name"
+            class="regname"
+            prefix-icon="el-icon-user"
+            placeholder="邮箱/手机号"
+            disabled
+            v-model="ruleForm.username"
+          />
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
         </el-form-item>
 
-        <el-form-item label="新密码"
-                      prop="password">
-          <el-input type="password"
-                    class="regpsw"
-                    placeholder="最多6个字符"
-                    prefix-icon="el-icon-lock"
-                    v-model="ruleForm.password" />
+        <el-form-item label="新密码" prop="password">
+          <el-input
+            type="password"
+            class="regpsw"
+            placeholder="最多6个字符"
+            prefix-icon="el-icon-lock"
+            v-model="ruleForm.password"
+          />
         </el-form-item>
-        <el-form-item label="昵称"
-                      prop="name">
-          <el-input type="name"
-                    class="regname"
-                    placeholder="最多12个字符"
-                    v-model="ruleForm.name" />
+        <el-form-item label="昵称" prop="name">
+          <el-input type="name" class="regname" placeholder="最多12个字符" v-model="ruleForm.name" />
         </el-form-item>
-        <el-form-item label="性别"
-                      prop="sex">
-          <el-radio v-model="ruleForm.radio"
-                    :label="1">男</el-radio>
-          <el-radio v-model="ruleForm.radio"
-                    :label="0">女</el-radio>
+        <el-form-item label="性别" prop="sex">
+          <el-radio v-model="ruleForm.radio" :label="1">男</el-radio>
+          <el-radio v-model="ruleForm.radio" :label="0">女</el-radio>
         </el-form-item>
-        <el-form-item label="年龄"
-                      prop="age">
-          <el-input type="number"
-                    class="regname"
-                    v-model="ruleForm.age" />
+        <el-form-item label="年龄" prop="age">
+          <el-input type="number" class="regname" v-model="ruleForm.age" />
         </el-form-item>
-        <el-form-item label="更换手机号"
-                      prop="phone">
-          <el-input type="text"
-                    class="regname"
-                    placeholder="新手机号"
-                    v-model="ruleForm.phone" />
+        <el-form-item label="更换手机号" prop="phone">
+          <el-input type="text" class="regname" placeholder="新手机号" v-model="ruleForm.phone" />
         </el-form-item>
         <el-form-item class="form-btn">
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
           <el-button type="primary"
                      @click="submitForm('ruleForm')">保存修改</el-button>
           <el-button @click="dialogVisible2 = false">取消</el-button>
+=======
+          <el-button type="primary" @click="submitForm('ruleForm')">保存修改</el-button>
+          <el-button @click="resetForm()">取消</el-button>
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
         </el-form-item>
       </el-form>
     </el-dialog>
@@ -220,6 +307,10 @@
 <script>
 // import JiBenXX from '../components/about/JiBenXX'
 import { getRequst, postRequst } from '../../../uilts/api'
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
+=======
+// import { mapState } from 'vuex'
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
 export default {
 
   data () {
@@ -286,6 +377,10 @@ export default {
         address: [{ required: true, message: '收货地址不能为空', trigger: 'blur' }]
       },
 
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
+=======
+      // 更换头像data
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
       myHeader: {
         Authorization: sessionStorage.getItem('token')
       }
@@ -296,13 +391,17 @@ export default {
     this.getuser()
     this.getpic()
     this.getAddress()
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
     this.edit()
+=======
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
   },
   methods: {
     // 获取用户信息
     async getuser () {
       // var token = sessionStorage.getItem('token')
       await getRequst('/selectusername').then((res) => {
+<<<<<<< HEAD:V1.4.7/MiYou-store/src/views/index/About.vue
         if (res) {
           this.addressForm.uid = res.data.user.uid
           this.user.uid = res.data.user.uid
@@ -326,6 +425,30 @@ export default {
           this.getAddress(res.data.user.uid)
           // console.log(this.myHeader)
         }
+=======
+        this.user.uid = res.data.user.uid
+        this.myData.uid = res.data.user.uid
+        this.user.username = res.data.user.username
+        this.user.name = res.data.user.name
+        this.user.sex = res.data.user.sex
+        this.user.age = res.data.user.age
+        this.user.phone = res.data.user.phone
+        this.user.registerDate = res.data.user.date
+        this.user.isStore = res.data.user.isStore
+        // this.user.address = res.data.user.address
+        console.log('sex=>', res)
+        // this.user.imgurl = 'http://localhost:8082/getpic?uid=' + res.data.user.uid
+
+        // 编辑输入框获取用户信息
+        this.ruleForm.username = res.data.user.username
+        this.ruleForm.name = res.data.user.name
+        this.ruleForm.radio = res.data.user.sex
+        this.ruleForm.age = res.data.user.age
+        this.ruleForm.phone = res.data.user.phone
+
+        this.getAddress(res.data.user.uid)
+        // console.log(this.myHeader)
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/MiYou-store/src/views/index/About.vue
       })
       // console.log('sex=>', this.user)
     },

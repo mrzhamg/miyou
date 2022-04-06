@@ -1,5 +1,8 @@
 HELP.md
+<<<<<<< HEAD:V1.4.7/demo1/.gitignore
 
+=======
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/demo1/.gitignore
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

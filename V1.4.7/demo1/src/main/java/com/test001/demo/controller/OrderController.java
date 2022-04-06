@@ -91,6 +91,7 @@ public class OrderController {
         int sid = shangjia_user.getSjid();
         return orderServer.getSjOrder(sid);
     }
+<<<<<<< HEAD:V1.4.7/demo1/src/main/java/com/test001/demo/controller/OrderController.java
 
     @PostMapping("/updataOrder")
     public Result updataOrder(@RequestBody Order order){
@@ -123,4 +124,6 @@ public class OrderController {
             }
         }
     }
+=======
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/demo1/src/main/java/com/test001/demo/controller/OrderController.java
 }

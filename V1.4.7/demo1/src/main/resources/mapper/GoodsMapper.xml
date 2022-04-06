@@ -25,11 +25,15 @@
                 FROM `goods` inner join `shangjia_user` on goods.sjid=shangjia_user.sjid AND goods.sid=#{sid}
     </select>
     <select id="findGoodsAll" resultType="com.test001.demo.entity.Goods" >
+<<<<<<< HEAD:V1.4.7/demo1/src/main/resources/mapper/GoodsMapper.xml
         SELECT * FROM goods where isputaway = true limit 10;
     </select>
 
     <select id="findGoodsLimit" resultType="com.test001.demo.entity.Goods" >
         SELECT * FROM goods where isputaway = true limit #{num};
+=======
+        SELECT * FROM goods where isputaway = true;
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/demo1/src/main/resources/mapper/GoodsMapper.xml
     </select>
 
     <select id="getSidfindGoodsList" resultType="com.test001.demo.entity.Goods" >
@@ -52,7 +56,11 @@
 
 <!-- 修改商品信息 -->
     <update id="UpdataGoodsAll" parameterType="com.test001.demo.entity.Goods">
+<<<<<<< HEAD:V1.4.7/demo1/src/main/resources/mapper/GoodsMapper.xml
         UPDATE goods set `describe`=#{describe},price=#{price},classify=#{classify},isputaway=#{isputaway},`miaoshu`=#{miaoshu} where sid=#{sid};
+=======
+        UPDATE goods set `describe`=#{describe},price=#{price},classify=#{classify},`miaoshu`=#{miaoshu} where sid=#{sid};
+>>>>>>> 91d482ca329adbb28eb5deee5c966946c5794c41:V1.4.2/demo1/src/main/resources/mapper/GoodsMapper.xml
     </update>
 
     <delete id="delGood" parameterType="com.test001.demo.entity.Goods">
